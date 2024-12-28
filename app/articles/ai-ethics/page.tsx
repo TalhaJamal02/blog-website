@@ -12,7 +12,7 @@ const AIEthics = () => {
           The rapid growth of Artificial Intelligence (AI) has raised significant ethical concerns. As AI systems become more integrated into everyday life, questions about privacy, decision-making, and bias are coming to the forefront. The ethical implications of AI are complex and multifaceted, and understanding these challenges is crucial as AI technologies evolve.
         </p>
         <p>
-          One of the most pressing concerns surrounding AI is privacy. AI systems often rely on vast amounts of data, including personal information, to make decisions. The use of this data raises questions about who owns it, how it's protected, and how it should be used. In particular, there are concerns about how AI can be used for surveillance and how individuals' personal data is handled.
+          One of the most pressing concerns surrounding AI is privacy. AI systems often rely on vast amounts of data, including personal information, to make decisions. The use of this data raises questions about who owns it, how its protected, and how it should be used. In particular, there are concerns about how AI can be used for surveillance and how individuals personal data is handled.
         </p>
         <p>
           Another key issue is bias. AI algorithms are trained on data, and if that data is biased, the resulting AI system can be biased as well. For example, AI used in hiring processes may inadvertently discriminate against certain groups of people if the training data reflects existing biases. This could lead to unequal opportunities for certain individuals or communities, further perpetuating existing inequalities.

@@ -23,7 +23,7 @@ const AICategory = () => {
     <div className="py-12 bg-gray-50 h-full">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-semibold">Artificial Intelligence</h2>
-        <p className="text-lg text-gray-600 mt-4">Dive into the world of AI, its applications, and how it's shaping the future.</p>
+        <p className="text-lg text-gray-600 mt-4">Dive into the world of AI, its applications, and how its shaping the future.</p>
       </div>
 
       <div className="space-y-6">

@@ -5,7 +5,7 @@ const QuantumComputingBasics = () => {
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-12">
       <h1 className="text-4xl font-semibold text-gray-800">
-        The Basics of Quantum Computing: A Beginner's Guide
+        The Basics of Quantum Computing: A Beginners Guide
       </h1>
       <p className="text-gray-600 mt-4">Posted on December 28, 2024</p>
 

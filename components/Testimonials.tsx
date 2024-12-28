@@ -9,21 +9,21 @@ function Testimonials() {
           
           {/* first */}
           <div className="bg-white p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
-            <p className="text-gray-700 ">"This blog provides such valuable insights. I love reading the latest in AI and space technology!"</p>
+            <p className="text-gray-700 ">This blog provides such valuable insights. I love reading the latest in AI and space technology!</p>
             <p className="mt-4 font-semibold text-gray-900">Sarah L.</p>
             <p className="text-gray-500">AI Enthusiast</p>
           </div>
 
           {/* second */}
           <div className="bg-white p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
-            <p className="text-gray-700 ">"A great resource for staying updated on the latest developments in quantum computing. Highly recommended!"</p>
+            <p className="text-gray-700 ">A great resource for staying updated on the latest developments in quantum computing. Highly recommended!</p>
             <p className="mt-4 font-semibold text-gray-900">Michael P.</p>
             <p className="text-gray-500">Quantum Computing Expert</p>
           </div>
 
           {/* third */}
           <div className="bg-white p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
-            <p className="text-gray-700 ">"I can't get enough of the space articles. Very well written and easy to understand. Keep up the great work!"</p>
+            <p className="text-gray-700 ">I cant get enough of the space articles. Very well written and easy to understand. Keep up the great work!</p>
             <p className="mt-4 font-semibold text-gray-900">Emily R.</p>
             <p className="text-gray-500">Space Enthusiast</p>
           </div>
