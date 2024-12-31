@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Trash2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface Comment {
   id: number;
@@ -10,6 +11,17 @@ interface Comment {
 const CommentSection: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState<string>("");
+
+  useEffect(() => {
+    const storedComments = localStorage.getItem("comments");
+    if (storedComments) {
+      setComments(JSON.parse(storedComments));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("comments", JSON.stringify(comments));
+  }, [comments]);
 
   const handleCommentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -45,7 +57,7 @@ const CommentSection: React.FC = () => {
                 onClick={() => handleCommentDelete(comment.id)}
                 className="ml-4 text-red-600 hover:text-red-800"
               >
-                Delete
+                <Trash2 />
               </button>
             </div>
           ))
