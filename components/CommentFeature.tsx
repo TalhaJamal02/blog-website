@@ -1,6 +1,6 @@
 "use client";
 
-import { Trash2 } from "lucide-react";
+import { Trash2, Save, Edit3Icon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface Comment {
@@ -11,6 +11,8 @@ interface Comment {
 const CommentSection: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState<string>("");
+  const [editCommentId, setEditCommentId] = useState<number | null>(null);
+  const [editContent, setEditContent] = useState<string>("");
 
   useEffect(() => {
     const storedComments = localStorage.getItem("comments");
@@ -39,6 +41,23 @@ const CommentSection: React.FC = () => {
     setComments(comments.filter((comment) => comment.id !== id));
   };
 
+  const handleEditComment = (id: number, content: string) => {
+    setEditCommentId(id);
+    setEditContent(content);
+  };
+
+  const handleSaveComment = () => {
+    setComments(
+      comments.map((comment) =>
+        comment.id === editCommentId
+          ? { ...comment, content: editContent.trim() }
+          : comment
+      )
+    );
+    setEditCommentId(null);
+    setEditContent("");
+  };
+
   return (
     <div className="mt-8 border-t pt-6">
       <h3 className="text-2xl font-semibold text-gray-800">Comments</h3>
@@ -52,13 +71,38 @@ const CommentSection: React.FC = () => {
               key={comment.id}
               className="p-4 border rounded-md bg-gray-50 flex justify-between items-start"
             >
-              <p className="text-gray-800">{comment.content}</p>
-              <button
-                onClick={() => handleCommentDelete(comment.id)}
-                className="ml-4 text-red-600 hover:text-red-800"
-              >
-                <Trash2 />
-              </button>
+              {editCommentId === comment.id ? (
+                <textarea
+                  className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-600"
+                  value={editContent}
+                  onChange={(e) => setEditContent(e.target.value)}
+                />
+              ) : (
+                <p className="text-gray-800">{comment.content}</p>
+              )}
+              <div className="ml-4 flex space-x-4">
+                {editCommentId === comment.id ? (
+                  <button
+                    onClick={handleSaveComment}
+                    className="text-black hover:text-gray-800 "
+                  >
+                    <Save size={22} />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleEditComment(comment.id, comment.content)}
+                    className="text-black hover:text-gray-800"
+                  >
+                    <Edit3Icon size={22} />
+                  </button>
+                )}
+                <button
+                  onClick={() => handleCommentDelete(comment.id)}
+                  className="text-red-600 hover:text-red-800"
+                >
+                  <Trash2 size={22} />
+                </button>
+              </div>
             </div>
           ))
         )}
@@ -66,14 +110,15 @@ const CommentSection: React.FC = () => {
 
       <form onSubmit={handleCommentSubmit} className="mt-6">
         <textarea
-          className="w-full p-4 border rounded-md focus:ring-2 focus:ring-blue-600"
+          className="w-full p-4 border rounded-md"
           placeholder="Write a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
+          rows={4}
         />
         <button
           type="submit"
-          className="mt-2 px-6 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="mt-2 px-6 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 border-none"
         >
           Post Comment
         </button>
